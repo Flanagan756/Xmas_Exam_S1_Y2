@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XmasExam_HarryFlanagan"
         mc:Ignorable="d"
-        Title="Team App" Height="450" Width="800">
+        Title="Team App" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Formation" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="86" Height="25"/>
         <ComboBox HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Width="120"/>
