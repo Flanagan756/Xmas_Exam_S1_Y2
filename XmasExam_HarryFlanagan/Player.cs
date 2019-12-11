@@ -16,7 +16,7 @@ namespace XmasExam_HarryFlanagan
         Midfielder,
         Forward
     }
-    class Player
+   class Player : IComparable<Player>
     {
 
 
@@ -40,6 +40,19 @@ namespace XmasExam_HarryFlanagan
         {
 
             return $"{FirstName} {Surname} 24 {PreferedPosistion}";
+        }
+
+        //Sorting
+        public int CompareTo(Player other)
+        {
+            int returnValue = this.PreferedPosistion.CompareTo(other.PreferedPosistion); //Compare Prefered Position
+
+            if (returnValue == 0)
+            {
+                returnValue = this.FirstName.CompareTo(other.FirstName); //Compare First Name after it has compared the Prefered Position
+            }
+
+            return returnValue; //Return the value
         }
 
 

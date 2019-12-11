@@ -16,6 +16,7 @@
         <Button x:Name="btnAddPlayer" Content="Add > >" HorizontalAlignment="Left" Margin="357,157,0,0" VerticalAlignment="Top" Width="75" Click="BtnAddPlayer_Click"/>
         <Button x:Name="btnRemovePlayer" Content="&lt; &lt; Remove" HorizontalAlignment="Left" Margin="357,213,0,0" VerticalAlignment="Top" Width="75" Click="BtnRemovePlayer_Click"/>
         <Label Content="Spaces" HorizontalAlignment="Left" Margin="477,358,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbxSpacedLeft" HorizontalAlignment="Left" Margin="541,363,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

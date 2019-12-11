@@ -24,6 +24,9 @@ namespace XmasExam_HarryFlanagan
         List<Player> allPlayers = new List<Player>();
         List<Player> selectedPlayers = new List<Player>();
 
+        //Varibles
+        int spacesLeft = 11;
+
         //Name Arrays
         string[] firstNames = {
                 "Adam", "Amelia", "Ava", "Chloe", "Conor", "Daniel", "Emily",
@@ -47,12 +50,13 @@ namespace XmasExam_HarryFlanagan
             CreateRandomPlayer();
             CreatePlayers();
 
-            //display within the listbox on the right
+            /*Sorts all Players List*/
+            allPlayers.Sort(); 
+         
+
+            //Display
             lbxAllPlayers.ItemsSource = allPlayers;
-
-
-
-
+           
 
         }
         private void CreateRandomPlayer()
@@ -119,6 +123,7 @@ namespace XmasExam_HarryFlanagan
             allPlayers.Add(p17);
             allPlayers.Add(p18);
 
+
         }
 
         private void BtnAddPlayer_Click(object sender, RoutedEventArgs e)
@@ -129,12 +134,26 @@ namespace XmasExam_HarryFlanagan
             //null check
             if (selectedPlayer != null)
             {
+                if (spacesLeft != 0)
+                {
+                    //move item from left listbox to right
+                    allPlayers.Remove(selectedPlayer);
+                    selectedPlayers.Add(selectedPlayer);
 
-                //move item from left listbox to right
-                allPlayers.Remove(selectedPlayer);
-                selectedPlayers.Add(selectedPlayer);
+                    //Minus 1 on spaces left and display in txt box
+                    spacesLeft--;
+                    tbxSpacedLeft.Text = spacesLeft.ToString();
 
-                RefreshScreen();
+                    //Sorts Selected Players List
+                    selectedPlayers.Sort();
+
+                    RefreshScreen();
+                }
+                else
+                {
+                    MessageBox.Show("No spaces left", "Team App", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+           
 
             }
         }
@@ -150,6 +169,10 @@ namespace XmasExam_HarryFlanagan
                 //move item from left listbox to right
                 selectedPlayers.Remove(selectedPlayer);
                 allPlayers.Add(selectedPlayer);
+
+                //add 1 on spaces left and display in txt box
+                spacesLeft++;
+                tbxSpacedLeft.Text = spacesLeft.ToString();
 
                 RefreshScreen();
 
