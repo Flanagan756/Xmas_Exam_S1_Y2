@@ -13,8 +13,8 @@
         <ListBox x:Name="lbxSelectedPlayers" HorizontalAlignment="Left" Height="243" Margin="477,93,0,0" VerticalAlignment="Top" Width="240"/>
         <Label Content="All Players" HorizontalAlignment="Left" Margin="81,67,0,0" VerticalAlignment="Top" Width="165"/>
         <Label Content="Selected Players" HorizontalAlignment="Left" Margin="477,67,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAddPlayer" Content="Add > >" HorizontalAlignment="Left" Margin="357,157,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnRemovePlayer" Content="&lt; &lt; Remove" HorizontalAlignment="Left" Margin="357,213,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnAddPlayer" Content="Add > >" HorizontalAlignment="Left" Margin="357,157,0,0" VerticalAlignment="Top" Width="75" Click="BtnAddPlayer_Click"/>
+        <Button x:Name="btnRemovePlayer" Content="&lt; &lt; Remove" HorizontalAlignment="Left" Margin="357,213,0,0" VerticalAlignment="Top" Width="75" Click="BtnRemovePlayer_Click"/>
         <Label Content="Spaces" HorizontalAlignment="Left" Margin="477,358,0,0" VerticalAlignment="Top"/>
 
     </Grid>

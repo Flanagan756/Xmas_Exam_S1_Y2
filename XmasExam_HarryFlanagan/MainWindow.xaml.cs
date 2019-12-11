@@ -22,6 +22,7 @@ namespace XmasExam_HarryFlanagan
     {
         /*Lists*/
         List<Player> allPlayers = new List<Player>();
+        List<Player> selectedPlayers = new List<Player>();
 
         //Name Arrays
         string[] firstNames = {
@@ -46,19 +47,23 @@ namespace XmasExam_HarryFlanagan
             CreateRandomPlayer();
             CreatePlayers();
 
-           
-           
+            //display within the listbox on the right
+            lbxAllPlayers.ItemsSource = allPlayers;
 
 
-      
+
+
+
         }
         private void CreateRandomPlayer()
         {
             // Create a Random object  
             Random rand = new Random();
-            // Generate a random index less than the size of the array.  
+
+            // Generate a random FNameIndex less than the size of the array.  
             int fNameIndex = rand.Next(firstNames.Length);
-            // Generate a random index less than the size of the array.  
+
+            // Generate a random lNameIndex less than the size of the array.  
             int lNameIndex = rand.Next(lastNames.Length);
 
             DateTime RandomDay()
@@ -75,6 +80,7 @@ namespace XmasExam_HarryFlanagan
         }
         public void CreatePlayers()
         {
+            //All Created Players properties
             Player p2 = new Player("Sophie", "O'Neill", Position.GoalKeeper, new DateTime(1993, 06, 03));
             Player p3 = new Player("Grace", "Walsh", Position.GoalKeeper, new DateTime(1992, 07, 03));
             Player p4 = new Player("Harry", "Lynch", Position.Defender, new DateTime(1999, 08, 03));
@@ -95,8 +101,68 @@ namespace XmasExam_HarryFlanagan
             Player p19 = new Player("Suzy", "Smith", Position.Forward, new DateTime(1996, 06, 03));
 
             /*Add Player to List*/
+            allPlayers.Add(p2);
+            allPlayers.Add(p3);
+            allPlayers.Add(p4);
+            allPlayers.Add(p5);
+            allPlayers.Add(p6);
+            allPlayers.Add(p7);
+            allPlayers.Add(p8);
+            allPlayers.Add(p9);
+            allPlayers.Add(p10);
+            allPlayers.Add(p11);
+            allPlayers.Add(p12);
+            allPlayers.Add(p13);
+            allPlayers.Add(p14);
+            allPlayers.Add(p15);
+            allPlayers.Add(p16);
+            allPlayers.Add(p17);
+            allPlayers.Add(p18);
 
         }
 
+        private void BtnAddPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            //What item is selected
+            Player selectedPlayer = lbxAllPlayers.SelectedItem as Player;
+
+            //null check
+            if (selectedPlayer != null)
+            {
+
+                //move item from left listbox to right
+                allPlayers.Remove(selectedPlayer);
+                selectedPlayers.Add(selectedPlayer);
+
+                RefreshScreen();
+
+            }
+        }
+        private void BtnRemovePlayer_Click(object sender, RoutedEventArgs e)
+        {
+            //What item is selected
+            Player selectedPlayer = lbxSelectedPlayers.SelectedItem as Player;
+
+            //null check
+            if (selectedPlayer != null)
+            {
+
+                //move item from left listbox to right
+                selectedPlayers.Remove(selectedPlayer);
+                allPlayers.Add(selectedPlayer);
+
+                RefreshScreen();
+
+            }
+        }
+        private void RefreshScreen()
+        {
+            //Rereshes the screen
+            lbxAllPlayers.ItemsSource = null;
+            lbxAllPlayers.ItemsSource = allPlayers;
+
+            lbxSelectedPlayers.ItemsSource = null;
+            lbxSelectedPlayers.ItemsSource = selectedPlayers;
+        }
     }
 }

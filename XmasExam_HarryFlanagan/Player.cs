@@ -35,9 +35,14 @@ namespace XmasExam_HarryFlanagan
             PreferedPosistion = preferedPostion;
             DateOfBirth = dateOfBirth;
         }
-    
+        /*Methods*/
+        public override string ToString()
+        {
+
+            return $"{FirstName} {Surname} 24 {PreferedPosistion}";
+        }
+
+
     }
-    /*Methods*/
-    public override
 
 }
