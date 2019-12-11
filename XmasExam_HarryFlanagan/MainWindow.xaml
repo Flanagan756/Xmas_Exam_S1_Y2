@@ -8,7 +8,11 @@
         Title="Team App" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Formation" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="86" Height="25"/>
-        <ComboBox HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Tag="442" Selected="ComboBoxItem_Selected1">4-4-2</ComboBoxItem>
+            <ComboBoxItem Tag="433" Selected="ComboBoxItem_Selected2">4-3-3</ComboBoxItem>
+            <ComboBoxItem Tag="451" Selected="ComboBoxItem_Selected3">4-5-1</ComboBoxItem>
+        </ComboBox>
         <ListBox x:Name="lbxAllPlayers" HorizontalAlignment="Left" Height="243" Margin="81,93,0,0" VerticalAlignment="Top" Width="232"/>
         <ListBox x:Name="lbxSelectedPlayers" HorizontalAlignment="Left" Height="243" Margin="477,93,0,0" VerticalAlignment="Top" Width="240"/>
         <Label Content="All Players" HorizontalAlignment="Left" Margin="81,67,0,0" VerticalAlignment="Top" Width="165"/>

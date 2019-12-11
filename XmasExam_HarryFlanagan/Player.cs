@@ -25,7 +25,20 @@ namespace XmasExam_HarryFlanagan
         public string Surname { get; set; }
         public Position PreferedPosistion { get; set; }
         public  DateTime DateOfBirth { get; set; }
-        public int Age { get; set; }
+
+        private int _age;
+        public int Age
+        {
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                // Calculate the age.
+                _age = DateTime.Now.Year - DateOfBirth.Year;         
+            }
+        }
 
         /*Constructor*/
         public Player(string firstName, string surname, Position preferedPostion, DateTime dateOfBirth)
@@ -34,12 +47,13 @@ namespace XmasExam_HarryFlanagan
             Surname = surname;
             PreferedPosistion = preferedPostion;
             DateOfBirth = dateOfBirth;
+            Age = _age;
         }
         /*Methods*/
         public override string ToString()
         {
 
-            return $"{FirstName} {Surname} 24 {PreferedPosistion}";
+            return $"{FirstName} {Surname} {Age} {PreferedPosistion}";
         }
 
         //Sorting

@@ -26,6 +26,9 @@ namespace XmasExam_HarryFlanagan
 
         //Varibles
         int spacesLeft = 11;
+        int defenderNum = 0;
+        int midfielderNum = 0;
+        int forwardNum = 0;
 
         //Name Arrays
         string[] firstNames = {
@@ -144,6 +147,20 @@ namespace XmasExam_HarryFlanagan
                     spacesLeft--;
                     tbxSpacedLeft.Text = spacesLeft.ToString();
 
+                    //Keep track of number of players added to each positon
+                    if (selectedPlayer.PreferedPosistion == Position.Defender)
+                    {
+                        defenderNum++;
+                    }
+                    else if (selectedPlayer.PreferedPosistion == Position.Midfielder)
+                    {
+                        midfielderNum++;
+                    }
+                    else if (selectedPlayer.PreferedPosistion == Position.Forward)
+                    {
+                        forwardNum++;
+                    }
+
                     //Sorts Selected Players List
                     selectedPlayers.Sort();
 
@@ -169,15 +186,56 @@ namespace XmasExam_HarryFlanagan
                 //move item from left listbox to right
                 selectedPlayers.Remove(selectedPlayer);
                 allPlayers.Add(selectedPlayer);
+                if (selectedPlayer.PreferedPosistion == Position.Defender)
+                {
 
+                }
                 //add 1 on spaces left and display in txt box
                 spacesLeft++;
                 tbxSpacedLeft.Text = spacesLeft.ToString();
+
+                //Keep track of number of players removed to each positon
+                if (selectedPlayer.PreferedPosistion == Position.Defender)
+                {
+                    defenderNum--;
+                }
+                else if (selectedPlayer.PreferedPosistion == Position.Midfielder)
+                {
+                    midfielderNum--;
+                }
+                else if (selectedPlayer.PreferedPosistion == Position.Forward)
+                {
+                    forwardNum--;
+                }
 
                 RefreshScreen();
 
             }
         }
+
+        private void ComboBoxItem_Selected1(object sender, RoutedEventArgs e)
+        {
+            if ((defenderNum>4)||(midfielderNum>4)||(forwardNum>2))
+            {
+                MessageBox.Show("Too many of one type of postion", "Team App", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+    
+        private void ComboBoxItem_Selected2(object sender, RoutedEventArgs e)
+        {
+            if ((defenderNum > 4) || (midfielderNum > 3) || (forwardNum > 3))
+            {
+                MessageBox.Show("Too many of one type of postion", "Team App", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+        private void ComboBoxItem_Selected3(object sender, RoutedEventArgs e)
+        {
+            if ((defenderNum > 4) || (midfielderNum > 5) || (forwardNum > 1))
+            {
+                MessageBox.Show("Too many of one type of postion", "Team App", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+        //Method to Refresh the screen
         private void RefreshScreen()
         {
             //Rereshes the screen
@@ -187,5 +245,8 @@ namespace XmasExam_HarryFlanagan
             lbxSelectedPlayers.ItemsSource = null;
             lbxSelectedPlayers.ItemsSource = selectedPlayers;
         }
+
+
+
     }
 }
